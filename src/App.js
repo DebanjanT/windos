@@ -5,7 +5,7 @@ import { Finder, Welcome, StartMenu } from "./comps/finder";
 import { folder_logo, win_logo } from "./urls";
 function App() {
   const [displayFinder, setDisplayFinder] = useState(false);
-  const [showStart, setShowStart] = useState(true);
+  const [showStart, setShowStart] = useState(false);
   return (
     <div className=" relative ">
       {/* Start`` */}
