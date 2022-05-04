@@ -141,7 +141,9 @@ export const Finder = ({ displayFinder1, setDisplayFinder2 }) => {
             <div className="w-5/6 h-4/5 bg-black  flex flex-col justify-start items-start opacity-80">
               <div className="w-full bg-white text-black h-8 flex justify-between items-center   ">
                 <div>
-                  <p className="ml-4 font-semibold text-sm">Tewarminal</p>
+                  <p className="ml-4 font-semibold text-sm">
+                    T<span className="text-blue-600">war</span>minal
+                  </p>
                 </div>
                 <div className="flex justify-center items-center">
                   <button
@@ -158,7 +160,7 @@ export const Finder = ({ displayFinder1, setDisplayFinder2 }) => {
               >
                 <form
                   onSubmit={handleTewarminal}
-                  className="mb-3 flex-shrink-0"
+                  className="mb-3 flex-shrink-0 flex-wrap"
                 >
                   <code>
                     <span className="mr-2 text-green-400 font-semibold">
@@ -172,19 +174,21 @@ export const Finder = ({ displayFinder1, setDisplayFinder2 }) => {
                       autoSave={false}
                       autoComplete={false}
                       value={input}
-                      onChange={(e) => setInput(e.target.value)}
+                      onChange={(e) => setInput(e.target.value.toLowerCase())}
                     />
                   </code>
                   <button className="hidden" type="submit">
                     Submit
                   </button>
                 </form>
-                <code
-                  className="flex justify-start text-xs flex-wrap flex-shrink-0"
-                  data-output={true}
-                >
-                  {output && <>- {output}</>}
-                </code>
+                <div>
+                  <code
+                    className="flex justify-start text-xs flex-wrap flex-shrink-0"
+                    data-output={true}
+                  >
+                    {output && <>- {output}</>}
+                  </code>
+                </div>
               </label>
             </div>
           </div>
@@ -194,4 +198,25 @@ export const Finder = ({ displayFinder1, setDisplayFinder2 }) => {
   );
 };
 
-export const StartMenu = () => {};
+export const StartMenu = ({ showStart1, setShowStart2 }) => {
+  return (
+    showStart1 && (
+      <div className="h-80 lg:h-[35rem]  w-80 lg:w-96 bg-white opacity-90 lg:opacity-80 fixed bottom-20 left-6 rounded-lg shadow-xl  ">
+        <div className="bg-gray-200 h-10 rounded-t-lg text-gray-600 font-semibold flex justify-between items-center pl-2 pr-3">
+          <p>
+            Mini St<span className="text-blue-600">war</span>t
+          </p>
+          <button
+            onClick={() => setShowStart2(false)}
+            className=" bg-red-500 text-white flex justify-center items-center px-2 rounded-full"
+          >
+            X
+          </button>
+        </div>
+        <div className=" h-full flex flex-col justify-center items-center">
+          Kya Hoga Start krke?
+        </div>
+      </div>
+    )
+  );
+};
